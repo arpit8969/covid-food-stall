@@ -1,0 +1,40 @@
+<html>
+<head>
+	<title>Arogyam</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	
+
+</head>
+<body style="background:#c1f2bd">
+
+	<nav class="navbar navbar-default">
+		<div class='container-fluid'>
+			<div class='navbar-header'>
+				<a class="nav navbar-brand" href="/">Arogya</a>
+			</div>
+			<div class='collapse navbar-collapse'>
+				<ul class='nav navbar-nav navbar-right'>
+					<li><a href="/">Login</a></li>
+					<li><a href="/">Sign Up</a></li>
+					<li><a href="/">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<br><br>
+
+	
+
+	<br><br><br>
+
+	<div id="mp" style="margin-left: 120px;">
+		<iframe width="600" height="450" frameborder="0" style="border:0"
+  			src="https://www.google.com/maps/embed/v1/directions?key=<%= API_KEY %>
+    		&origin=<%= src_coord %>&destination=<%= dest_coord %>&mode=walking" allowfullscreen>
+		</iframe>
+	</div>
+
+
+</body>
+</html>

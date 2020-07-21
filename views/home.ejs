@@ -1,0 +1,68 @@
+<html>
+<head>
+	<title>Arogyam</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script type="text/javascript">
+		var pos;
+		var url1 = '<iframe width="600" height="450" frameborder="0" style="border:0" src="';
+        //var url2 = 'https://www.google.com/maps/embed/v1/place?key=API_KEY&q=Space+Needle,Seattle+WA';
+        var url2 = 'https://www.google.com/maps/embed/v1/directions?key=';
+        var myKey = '<%= API_KEY %>';
+        var url3 = '&origin=';
+        //Oslo+Norway
+        var url4 = '&destination=';
+        //Telemark+Norway';
+        var url5 = '&mode=walking" allowfullscreen> </iframe>';
+		function func(){
+			navigator.geolocation.getCurrentPosition(function(position){
+				
+				pos = position;
+
+				var origlat = String(position.coords.latitude);
+				var origlon = String(position.coords.longitude);
+				var orig = origlat + "," + origlon;
+				
+				//var text = url1 + url2 + myKey + url3 + orig + url4 + dest + url5;
+
+				//console.log(text);
+				//document.getElementById("mp").innerHTML = text;
+
+				var uri = "http://localhost:3000/show?scoord=" + orig;
+
+				console.log(uri);
+
+				window.location.href = uri;
+
+			});
+
+		}
+	</script>
+</head>
+<body style="background:#c1f2bd">
+
+	<nav class="navbar navbar-default">
+		<div class='container-fluid'>
+			<div class='navbar-header'>
+				<a class="nav navbar-brand" href="/">Arogya</a>
+			</div>
+			<div class='collapse navbar-collapse'>
+				<ul class='nav navbar-nav navbar-right'>
+					<li><a href="/">Login</a></li>
+					<li><a href="/">Sign Up</a></li>
+					<li><a href="/">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<br><br>
+
+	<button class='btn btn-lg btn-primary' style="margin-left: 120px;" onclick="func()">Find Nearest Food Stall</button>
+
+	<br><br><br>
+
+	<div id="mp" style="margin-left: 120px;"></div>
+
+
+</body>
+</html>
